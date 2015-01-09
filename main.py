@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-FireStarter
+FoxList
 
 Copyright 2014, Michael Yanovich, yanovich.net
 Licensed under the Eiffel Forum License 2.
@@ -42,7 +42,7 @@ class Example(Frame):
     def initUI(self):
         '''Initialize User Interface'''
 
-        self.parent.title('FireStarter')
+        self.parent.title('FoxList')
 
         frame = Frame(self, relief=RAISED, borderwidth=1)
         self.pack(fill=BOTH, expand=1)
@@ -123,13 +123,13 @@ def get_firefoxes():
     ''' General function that parses the user's configuration file'''
 
     user = os.environ['HOME']
-    config_location = '/home/yano/.config/FireStarter/firefox.conf'
+    config_location = '/home/yano/.config/FoxList/firefox.conf'
     firefox_file = imp.load_source('module.name', config_location)
     fx_dict = firefox_file.firefox_dict
 
     # remove 'compiled' version of the config file
     try:
-        os.remove('%s/.config/FireStarter/firefox.confc' % (user))
+        os.remove('%s/.config/FoxList/firefox.confc' % (user))
     except IOError:
         # add logging / maybe popup
         pass
@@ -181,7 +181,7 @@ def which(f):
 
 
 def generate_config_file():
-    '''Generates a config file in ~/.config/FireStarter/firefox.conf'''
+    '''Generates a config file in ~/.config/FoxList/firefox.conf'''
 
     user = os.environ['HOME']
 
@@ -195,23 +195,23 @@ def generate_config_file():
             print 'I could not create %s/.config/' % (user)
             pass
 
-    # check to see if the user has a ~/.config/FireStarter/ folder
-    if not os.path.exists('%s/.config/FireStarter/' % (user)):
+    # check to see if the user has a ~/.config/FoxList/ folder
+    if not os.path.exists('%s/.config/FoxList/' % (user)):
         try:
-            # create ~/.config/FireStarter/ folder since it doesn't exist
-            os.mkdir('%s/.config/FireStarter/' % (user))
+            # create ~/.config/FoxList/ folder since it doesn't exist
+            os.mkdir('%s/.config/FoxList/' % (user))
         except IOError:
             # add some logging and a pop up alert box
-            print 'I could not create %s/.config/FireStarter/' % (user)
+            print 'I could not create %s/.config/FoxList/' % (user)
             pass
 
     # create the file
     # and check for errors while doing so
     try:
-        config_file = open('%s/.config/FireStarter/firefox.conf' % (user), 'w')
+        config_file = open('%s/.config/FoxList/firefox.conf' % (user), 'w')
     except IOError:
         # add some logging and a pop up alert box
-        print 'I could not _open_ %s/.config/FireStarter/firefox.conf' % (user)
+        print 'I could not _open_ %s/.config/FoxList/firefox.conf' % (user)
         sys.exit()
         pass
 
@@ -236,7 +236,7 @@ def main():
     '''main function -- brains of the operation'''
 
     # Check for config file
-    config_file_path = '%s/.config/FireStarter/firefox.conf' % (os.environ['HOME'])
+    config_file_path = '%s/.config/FoxList/firefox.conf' % (os.environ['HOME'])
     if not os.path.exists(config_file_path):
         generate_config_file()
 
