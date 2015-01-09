@@ -8,4 +8,4 @@ Usage
 
 To use this script, set your desktop environment to launch the file main.py in this directory, you may store it anywhere you'd like. Then create a configuration file in ``~/.config/FireStarter``
 
-If you do not have any Firefox installations located in that that folder the menu will default back on to whatever the system default is for "firefox".
+If you do not have any Firefox installations located in that folder the menu will default back on to whatever the system default is for "firefox".
