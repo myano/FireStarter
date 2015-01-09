@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-firefox_launcher.py -- Launch a specific Firefox Version
+FireStarter
+
+Copyright 2014, Michael Yanovich, yanovich.net
+Licensed under the Eiffel Forum License 2.
 '''
 
 import imp
