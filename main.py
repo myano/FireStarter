@@ -1,9 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
 FoxList
 
-Copyright 2014, Michael Yanovich, yanovich.net
+Copyright 2014-2020, yano, yanovich.net
 Licensed under the Eiffel Forum License 2.
 '''
 
@@ -11,8 +11,8 @@ import imp
 import json
 import os
 
-from ttk import *
-from Tkinter import *
+from tkinter import *
+from tkinter.ttk import *
 import sys
 from subprocess import *
 
@@ -151,7 +151,7 @@ def get_firefoxes():
             continue
 
         # Format should be "Mozilla Firefox 28.0"
-        if text.startswith('Mozilla Firefox'):
+        if text.startswith(b'Mozilla Firefox'):
             version = text[15:]
             # chomp off the 'Mozilla Firefox' part
         else:
@@ -192,7 +192,7 @@ def generate_config_file():
             os.mkdir('%s/.config' % (user))
         except IOError:
             # add some logging and a pop up alert box
-            print 'I could not create %s/.config/' % (user)
+            print('I could not create %s/.config/' % (user))
             pass
 
     # check to see if the user has a ~/.config/FoxList/ folder
@@ -202,7 +202,7 @@ def generate_config_file():
             os.mkdir('%s/.config/FoxList/' % (user))
         except IOError:
             # add some logging and a pop up alert box
-            print 'I could not create %s/.config/FoxList/' % (user)
+            print('I could not create %s/.config/FoxList/' % (user))
             pass
 
     # create the file
@@ -211,7 +211,7 @@ def generate_config_file():
         config_file = open('%s/.config/FoxList/firefox.conf' % (user), 'w')
     except IOError:
         # add some logging and a pop up alert box
-        print 'I could not _open_ %s/.config/FoxList/firefox.conf' % (user)
+        print('I could not _open_ %s/.config/FoxList/firefox.conf' % (user))
         sys.exit()
         pass
 
